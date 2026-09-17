@@ -198,3 +198,86 @@ dragon.get_position()
 
 Test `test_set_position` sprawdza, ze po wywolaniu `set_position(1, 2)`
 pozycja smoka odpowiada nowym wspolrzednym.
+
+# Dragon Sprint 07
+
+## Cel sprintu
+
+Celem tego sprintu jest dodanie metod zmieniajacych pozycje smoka po
+ekranie w poziomie, w pionie oraz jednym wywolaniem laczacym oba kierunki.
+
+## Co zostalo zaimplementowane
+
+W pliku `dragon.py` klasa `Dragon` ma metody:
+
+- `move_right(value)` - zwieksza `x` o podana wartosc,
+- `move_left(value)` - zmniejsza `x` o podana wartosc,
+- `move_up(value)` - zmniejsza `y` o podana wartosc,
+- `move_down(value)` - zwieksza `y` o podana wartosc,
+- `move_horizontal(right=0, left=0)` - wykonuje ruch poziomy przez
+  wywolanie `move_right(right)` i `move_left(left)`,
+- `move_vertical(up=0, down=0)` - wykonuje ruch pionowy przez wywolanie
+  `move_up(up)` i `move_down(down)`,
+- `move(right=0, left=0, up=0, down=0)` - laczy ruch poziomy i pionowy,
+  wywolujac `move_horizontal(...)` oraz `move_vertical(...)`.
+
+## Konwencja wspolrzednych
+
+Punkt `x=0, y=0` to lewy gorny rog ekranu.
+
+- ruch w prawo zwieksza `x`,
+- ruch w lewo zmniejsza `x`,
+- ruch w gore zmniejsza `y`,
+- ruch w dol zwieksza `y`.
+
+To oznacza, ze os `y` jest odwrocona wzgledem typowego ukladu
+matematycznego, co jest czesta konwencja w grafice komputerowej.
+
+## Krotki przyklad uzycia
+
+```python
+from dragon import Dragon
+
+dragon = Dragon("Wawelski")
+dragon.set_position(10, 20)
+
+dragon.move_right(3)
+dragon.move_up(2)
+
+dragon.get_position()
+# (13, 18)
+```
+
+Przyklad z metoda laczona:
+
+```python
+dragon = Dragon("Wawelski", x=10, y=20)
+dragon.move(right=1, left=2, down=3, up=1)
+dragon.get_position()
+# (9, 22)
+```
+
+## Test sprintu 07
+
+Testy sprintu 07 znajduja sie w klasie `DragonPositionChangeTest` w pliku
+`test_dragon.py`.
+
+Polecenie nalezy wykonac z katalogu:
+
+`C:\Users\przem\PycharmProjects\PythonProject`
+
+Komenda:
+
+```bash
+python -B -m unittest discover -s dragon -p "test_*.py" -v
+```
+
+Testy tej klasy potwierdzaja dzialanie podstawowych zmian pozycji:
+
+- `test_move_right_by_1`,
+- `test_move_left_by_1`,
+- `test_move_down_by_1`,
+- `test_move_up_by_1`,
+- `test_move_right_by_1_then_left_by_2`,
+- `test_move_down_by_1_then_up_by_2`,
+- `test_move_right_left_down_and_up`.

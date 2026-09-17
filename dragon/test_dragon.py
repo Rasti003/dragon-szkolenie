@@ -51,5 +51,64 @@ class DragonCreateTest(unittest.TestCase):
         self.assertEqual(2, dragon.get_position()[1])
 
 
+class DragonPositionChangeTest(unittest.TestCase):
+    def create_dragon(self):
+        return Dragon("Wawelski", x=10, y=20)
+
+    def test_move_right_by_1(self):
+        dragon = self.create_dragon()
+
+        dragon.move_right(1)
+
+        self.assertEqual((11, 20), dragon.get_position())
+
+    def test_move_left_by_1(self):
+        dragon = self.create_dragon()
+
+        dragon.move_left(1)
+
+        self.assertEqual((9, 20), dragon.get_position())
+
+    def test_move_down_by_1(self):
+        dragon = self.create_dragon()
+
+        dragon.move_down(1)
+
+        self.assertEqual((10, 21), dragon.get_position())
+
+    def test_move_up_by_1(self):
+        dragon = self.create_dragon()
+
+        dragon.move_up(1)
+
+        self.assertEqual((10, 19), dragon.get_position())
+
+    def test_move_right_by_1_then_left_by_2(self):
+        dragon = self.create_dragon()
+
+        dragon.move_right(1)
+        dragon.move_left(2)
+
+        self.assertEqual((9, 20), dragon.get_position())
+
+    def test_move_down_by_1_then_up_by_2(self):
+        dragon = self.create_dragon()
+
+        dragon.move_down(1)
+        dragon.move_up(2)
+
+        self.assertEqual((10, 19), dragon.get_position())
+
+    def test_move_right_left_down_and_up(self):
+        dragon = self.create_dragon()
+
+        dragon.move_right(1)
+        dragon.move_left(2)
+        dragon.move_down(3)
+        dragon.move_up(4)
+
+        self.assertEqual((9, 19), dragon.get_position())
+
+
 if __name__ == "__main__":
     unittest.main()
