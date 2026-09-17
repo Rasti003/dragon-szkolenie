@@ -107,3 +107,38 @@ Po utworzeniu obiektu:
 
 Test `test_create_dragon_has_random_health_points` sprawdza, ze nowo
 utworzony smok ma punkty zycia mieszczace sie w wymaganym zakresie.
+
+# Dragon Sprint 04
+
+## Cel sprintu
+
+Celem tego sprintu jest dodanie pozycji smoka na ekranie (wspolrzedne
+`x` i `y`). Gorny lewy rog ekranu to punkt `x=0`, `y=0`.
+
+## Co zostalo zaimplementowane
+
+Klasa `Dragon` podczas tworzenia ustawia dodatkowo:
+
+- `x` - pozycja pozioma smoka, domyslnie `0`,
+- `y` - pozycja pionowa smoka, domyslnie `0`.
+
+Pozycje mozna ustawic przy tworzeniu obiektu, podajac argumenty `x` i `y`.
+
+## Przyklad
+
+```python
+dragon = Dragon("Wawelski")
+# dragon.x == 0
+# dragon.y == 0
+
+dragon = Dragon("Wawelski", x=50, y=100)
+# dragon.x == 50
+# dragon.y == 100
+```
+
+## Test sprintu 04
+
+- `test_create_dragon_with_default_position` sprawdza, ze nowo utworzony
+  smok bez podanej pozycji ma `x=0` i `y=0`.
+- `test_create_dragon_with_initial_position` sprawdza, ze smok utworzony
+  z podana pozycja ma ustawione wartosci `x` i `y` zgodnie z argumentami.
