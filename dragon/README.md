@@ -142,3 +142,29 @@ dragon = Dragon("Wawelski", x=50, y=100)
   smok bez podanej pozycji ma `x=0` i `y=0`.
 - `test_create_dragon_with_initial_position` sprawdza, ze smok utworzony
   z podana pozycja ma ustawione wartosci `x` i `y` zgodnie z argumentami.
+
+# Dragon Sprint 05
+
+## Cel sprintu
+
+Celem tego sprintu jest umozliwienie smokowi zwrocenia aktualnie
+zajmowanej pozycji.
+
+## Co zostalo zaimplementowane
+
+Klasa `Dragon` ma metode:
+
+- `get_position()` - zwraca krotke `(x, y)` z aktualna pozycja smoka.
+
+## Przyklad
+
+```python
+dragon = Dragon("Wawelski", x=1, y=2)
+dragon.get_position()
+# (1, 2)
+```
+
+## Test sprintu 05
+
+Test `test_get_position` sprawdza, ze `get_position()` zwraca pozycje
+smoka w postaci `(1, 2)`.

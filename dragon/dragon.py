@@ -9,3 +9,6 @@ class Dragon:
         self.health = randint(50, 100)
         self.x = x
         self.y = y
+
+    def get_position(self):
+        return (self.x, self.y)
