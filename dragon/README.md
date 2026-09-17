@@ -168,3 +168,33 @@ dragon.get_position()
 
 Test `test_get_position` sprawdza, ze `get_position()` zwraca pozycje
 smoka w postaci `(1, 2)`.
+
+# Dragon Sprint 06
+
+## Cel sprintu
+
+Celem tego sprintu jest umozliwienie ustawienia smoka w dowolnym miejscu
+ekranu w trakcie gry.
+
+## Co zostalo zaimplementowane
+
+Klasa `Dragon` ma metode:
+
+- `set_position(x, y)` - ustawia nowa pozycje smoka (aktualizuje `x` i `y`).
+
+## Przyklad
+
+```python
+dragon = Dragon("Wawelski", x=50, y=100)
+dragon.get_position()
+# (50, 100)
+
+dragon.set_position(10, 20)
+dragon.get_position()
+# (10, 20)
+```
+
+## Test sprintu 06
+
+Test `test_set_position` sprawdza, ze po wywolaniu `set_position(1, 2)`
+pozycja smoka odpowiada nowym wspolrzednym.

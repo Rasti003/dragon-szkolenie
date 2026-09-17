@@ -42,6 +42,14 @@ class DragonCreateTest(unittest.TestCase):
 
         self.assertEqual("(1, 2)", str(result))
 
+    def test_set_position(self):
+        dragon = Dragon("Wawelski")
+
+        dragon.set_position(1, 2)
+
+        self.assertEqual(1, dragon.get_position()[0])
+        self.assertEqual(2, dragon.get_position()[1])
+
 
 if __name__ == "__main__":
     unittest.main()
