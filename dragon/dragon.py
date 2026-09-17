@@ -40,3 +40,6 @@ class Dragon:
     def move(self, right=0, left=0, up=0, down=0):
         self.move_horizontal(right=right, left=left)
         self.move_vertical(up=up, down=down)
+
+    def make_damage(self):
+        return randint(5, 20)

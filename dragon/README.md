@@ -281,3 +281,43 @@ Testy tej klasy potwierdzaja dzialanie podstawowych zmian pozycji:
 - `test_move_right_by_1_then_left_by_2`,
 - `test_move_down_by_1_then_up_by_2`,
 - `test_move_right_left_down_and_up`.
+
+# Dragon Sprint 08
+
+## Cel sprintu
+
+Celem tego sprintu jest umozliwienie smokowi zadawania losowych obrazen
+w trakcie gry.
+
+## Co zostalo zaimplementowane
+
+W pliku `dragon.py` klasa `Dragon` ma metode:
+
+- `make_damage()` - zwraca losowa liczbe obrazen z przedzialu od 5 do 20
+  (wlacznie), korzystajac z `randint(5, 20)`.
+
+## Przyklad
+
+```python
+from dragon import Dragon
+
+dragon = Dragon("Wawelski")
+dragon.make_damage()
+# losowa liczba z przedzialu 5-20
+```
+
+## Test sprintu 08
+
+Test `test_make_damage_is_between_5_and_20` w klasie `DragonDamageTest`
+(plik `test_dragon.py`) sprawdza, ze wynik `make_damage()` miesci sie
+w przedziale od 5 do 20.
+
+Polecenie nalezy wykonac z katalogu:
+
+`C:\Users\przem\PycharmProjects\PythonProject`
+
+Komenda:
+
+```bash
+python -B -m unittest discover -s dragon -p "test_*.py" -v
+```

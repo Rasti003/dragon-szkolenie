@@ -110,5 +110,15 @@ class DragonPositionChangeTest(unittest.TestCase):
         self.assertEqual((9, 19), dragon.get_position())
 
 
+class DragonDamageTest(unittest.TestCase):
+    def test_make_damage_is_between_5_and_20(self):
+        dragon = Dragon("Wawelski")
+
+        result = dragon.make_damage()
+
+        self.assertGreaterEqual(result, 5)
+        self.assertLessEqual(result, 20)
+
+
 if __name__ == "__main__":
     unittest.main()
